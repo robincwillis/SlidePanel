@@ -1,0 +1,219 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Slide Panel, Another JQuery Panel Plugin</title>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+    <script src="src/jquery.slidePanel.0.0.1.js"></script>
+    
+    <link rel="stylesheet" type="text/css" href="css/slidepanel.css"></link>
+        
+    <script type="text/javascript">
+      $(document).ready(function(){     
+        
+        $("#a_panel").panel({
+		 		handle:'#a_panel > .panel_tab',
+		 		content:'#a_panel > .panel_content',
+		 		opened:true,
+		 		direction : "both",
+		      	openedSize : 180,
+		      	openEvent : 'mouseenter',
+		      	closeEvent : 'mouseleave',
+		      	openSelector : '#a_panel',
+		      	closeSelector : '#a_panel',
+		 	});		 	
+		 	
+		 	$("#b_panel").panel({
+		 		handle:'#b_panel > .panel_tab',
+		 		content:'#b_panel > .panel_content',
+				opened:false,
+				hidden:false,
+		 		direction : "both",
+		      	openedSize : 180,
+		      	openEvent : 'mouseenter',
+		      	closeEvent : 'mouseleave',
+		      	openSelector : '#b_panel',
+		      	closeSelector : '#b_panel'
+		 	});
+			
+			$("#c_panel").panel({
+		 		handle:'#c_panel > .panel_tab',
+				content:'#c_panel > .panel_content',
+		 		opened:false,
+		 		hidden:false,
+		 		direction : "both",
+		      	openedSize : 250,
+		      	openEvent : 'mouseenter',
+		      	closeEvent : 'mouseleave',
+		      	openSelector : '#c_panel',
+		      	closeSelector : '#c_panel'
+		 	});
+        
+    });
+    </script>
+
+    <script type="text/javascript">
+
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-4803873-2']);
+      _gaq.push(['_setDomainName', '.robincwillis.com']);
+      _gaq.push(['_trackPageview','/CharCycle']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+
+    </script>
+
+
+  </head>
+      
+  <body>
+
+
+    <div id="container">
+
+    
+  
+    <h1>Slide Panel</h1>
+    <h2>Another JQuery Panel Plugin.</h2>
+    <div id="content">
+       <div id="header">
+    <!-- Demo Header -->  
+    <div id="demo_panel">
+    	<div id="a_panel" class="panel left">
+    		<div class="panel_tab right"></div>
+    		<div class="panel_content left"></div>
+    	</div>
+    	<div id="b_panel" class="panel left">
+    		<div class="panel_tab right"></div>
+    		<div class="panel_content left"></div>
+    	</div>
+    	<div id="c_panel" class="panel right">
+    		<div class="panel_content"></div>
+    		<div class="panel_tab"></div>
+    	</div>
+    </div>
+    
+  
+    
+    </div>
+    
+     
+    <!-- Description -->
+    <div id="description">
+    
+    <h3>Description</h3>
+ 
+    <p>Slide Panel is a JQuery plugin that allows elements to expand and collapse creating a sliding panel effect. I know that this is nothing new and there are already a few JQuery panel plugins out there but this one is both highly flexible, has a small footprint and has some unique features.</p>  
+	
+	<h3>Further Developments</h3>
+	<ul>
+	<li>Option to slide vertically as well as horizontally</li>
+	<li>Destroy method to unbind events and remove the panel from the dom</li>
+	</ul>
+	
+	<h3>Options</h3>
+	<ul>
+	<li><b>handle</b>: Selector for the element that is visible at collapsed state, default is set to ".panel_tab"</li>
+	<li><b>content</b>: Selector for the element that is visible at  open state ".panel_content"</li>
+	<li><b>opened</b>: Inital panel state is open, default is set to false</li>
+	<li><b>hidden</b>: Inital panel state is hidden, default is set to false</li>
+	<li><b>direction</b>: If closing on "mouseleave" constrain the direction that closes the panel, can be "right", "left" or "both", default is set to "both"</li>
+	<li><b>openedSize</b>: Width of panel at its open state, default is set to 250</li>
+	<li><b>offset</b>: Width for the handle at its closed state, default is set to 35</li>
+	<li><b>closedSize</b>: Width of the panel at its closed state, default is set to 0</li>
+	<li><b>animTime</b>: Time it takes to open or close, default is set to 500</li>
+	<li><b>openEvent</b>: Event to open the panel, default is set to "mouseenter"</li>
+	<li><b>closeEvent</b>: Event to close the panel, default is set to "mouseleave"</li>
+	<li><b>toggleEvent</b>: Event to toggle the panel, default is set to ""</li>
+	<li><b>openSelector</b>: Selector for the element to attach the open event to, default is set to ""</li>
+	<li><b>closeSelector</b>: Selector for the element to attach the close event to, default is set to ""</li>
+	<li><b>toggleSelector</b>: Selector for the element to attach the toggle event to, default is set to ""</li>
+
+	</ul>
+	<h3>Methods</h3>
+    <ul>
+	<li><b>open</b>: Open the panel</li>
+	<li><b>close</b>: Close the panel</li>
+	<li><b>forceClose</b>: Force close the panel no matter what</li>
+	<li><b>toggle</b>: Toggle the panel</li>
+	<li><b>hide</b>: Hide the panel</li>
+    </ul>
+    
+    </div>
+    </div>
+    <div id="menu">
+    Version Beta 0.0.1<br/>
+    Updated November 10th, 2011<br/>
+    Have questions or find a bug? Open an Issue on <a href="https://github.com/robincwillis/SlidePanel/issues" target="_blank">GitHub</a><br/>
+    
+    <a class="button" href="src/jquery.slidePanel.0.0.1.js" target="_blank">Download</a> 
+    <!-- Download Link -->
+    <a class="button" href="example/index.html" target="_blank">Demo</a>
+    <!-- Demo Link -->
+    <a class="button" href="https://github.com/robincwillis/SlidePanel/" target="_blank">Source</a> 
+    <!-- Contact Link -->
+    
+    </div>
+    <div style="clear:both"></div>
+    <!-- Pre-HTML -->
+    <div id="code_html">
+    <h2>HTML</h2>
+    <pre>
+&lt;div id="slide_panel" class="panel right"&gt;
+	&lt;div class="panel_content"&gt;&lt;/div&gt;
+	&lt;div class="panel_tab"&gt;&lt;/div&gt;
+&lt;/div&gt;</pre>      
+    </div>
+    
+    <!-- Pre-CSS -->
+    <div id="css_html">
+    <h2>CSS</h2>
+    <pre>
+.left{float:left;}
+.right{float: right;}
+
+.panel{
+	height:100%;
+	display:block;
+	overflow:hidden;
+}
+
+.panel_tab{
+	height:100%;
+	overflow: hidden;
+}</pre>      
+    </div>
+    
+    <!-- Pre-Jquery -->
+    <div id="code_jquery">
+    <h2>JAVASCRIPT</h2>
+    <pre>
+$("#a_panel").panel({
+	handle:'#slide_panel > .panel_tab',
+	content:'#slide_panel > .panel_content',
+	opened:true,
+	direction : "both",
+	openedSize : 180,
+	openEvent : 'mouseenter',
+	closeEvent : 'mouseleave',
+	openSelector : '#slide_panel',
+	closeSelector : '#slide_panel',
+});</pre>
+    </div>
+
+
+    <div id="footer">
+      
+      Check out my other JQuery Plugins and Projects at <a href="http://code.robincwillis.com" target="_blank">code.robincwillis.com</a>
+      or get in touch with me on <a href="https://twitter.com/#!/robincwillis" target="_blank">Twitter</a>.
+    </div>
+    
+    </div>
+  </body>
+</html>

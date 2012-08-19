@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+
+  <!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame 
+       Remove this if you use the .htaccess -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+  <title>Slide Panel, Another JQuery Panel Plugin</title>
+  <meta name="description" content="Another JQuery Panel Plugin." />
+  <meta name="author" content="Robin Willis" />
+  
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+  <script type="text/javascript" src="../src/jquery.slidePanel.0.0.1.js"></script>
+ 
+
+  <script type="text/javascript">
+  $(document).ready(function(){
+
+  	//A Panel - Simplest Version
+  	$("#a_panel").panel({
+ 		handle:'#a_panel > .panel_tab',
+ 		content:'#a_panel > .panel_content',
+ 		opened:true,
+ 		direction : "both",
+     
+      	openEvent : 'mouseenter',
+      	closeEvent : 'mouseleave',
+      	openSelector : '#a_panel',
+      	closeSelector : '#a_panel',
+ 	});		
+  	//B Panel - Right Opening Panels Starting Closed
+   	$("#b_panel_1").panel({
+ 		handle:'#b_panel_1 > .panel_tab',
+ 		content:'#b_panel_1 > .panel_content',
+ 		opened:false,
+ 		direction : "right",
+      	openEvent : 'mouseenter',
+      	closeEvent : 'mouseleave',
+      	openSelector : '#b_panel_1',
+      	closeSelector : '#b_panel_1',
+ 	});		
+   	
+   	$("#b_panel_2").panel({
+ 		handle:'#b_panel_2 > .panel_tab',
+ 		content:'#b_panel_2 > .panel_content',
+ 		opened:false,
+ 		direction : "right",
+      	openEvent : 'mouseenter',
+      	closeEvent : 'mouseleave',
+      	openSelector : '#b_panel_2',
+      	closeSelector : '#b_panel_2',
+ 	});		
+    
+	$("#b_panel_3").panel({
+ 		handle:'#b_panel_3 > .panel_tab',
+ 		content:'#b_panel_3 > .panel_content',
+ 		opened:false,
+ 		direction : "right",
+      	openEvent : 'mouseenter',
+      	closeEvent : 'mouseleave',
+      	openSelector : '#b_panel_3',
+      	closeSelector : '#b_panel_3',
+ 	});		
+ 
+  	//C Panel - Right Opening Panels Starting Open
+    	$("#c_panel_1").panel({
+ 		handle:'#c_panel_1 > .panel_tab',
+ 		content:'#c_panel_1 > .panel_content',
+ 		opened:true,
+ 		direction : "both",
+      	openEvent : 'mouseenter',
+      	closeEvent : 'mouseleave',
+      	openSelector : '#c_panel_1',
+      	closeSelector : '#c_panel_1',
+ 	});		
+   	
+   	$("#c_panel_2").panel({
+ 		handle:'#c_panel_2 > .panel_tab',
+ 		content:'#c_panel_2 > .panel_content',
+ 		opened:true,
+ 		direction : "both",
+      	openEvent : 'mouseenter',
+      	closeEvent : 'mouseleave',
+      	openSelector : '#c_panel_2',
+      	closeSelector : '#c_panel_2',
+ 	});		
+    
+	$("#c_panel_3").panel({
+ 		handle:'#c_panel_3 > .panel_tab',
+ 		content:'#c_panel_3 > .panel_content',
+ 		opened:true,
+ 		direction : "both",
+      	openEvent : 'mouseenter',
+      	closeEvent : 'mouseleave',
+      	openSelector : '#c_panel_3',
+      	closeSelector : '#c_panel_3',
+ 	});		
+ 
+  	//D Panel - Toggle a Specic Panel From Event
+  	
+  	$("#d_panel").panel({
+ 		handle:'#d_panel > .panel_tab',
+ 		content:'#d_panel > .panel_content',
+ 		opened:false,
+ 		direction : "both",
+      	toggleEvent : 'click',
+      	toggleSelector : '#d_toggle'
+ 	});		
+  	
+  	//E Panel - Open all Panels From an Event
+  	$("#e_panel_1").panel({
+ 		handle:'#e_panel_1 > .panel_tab',
+ 		content:'#e_panel_1 > .panel_content',
+ 		opened:false,
+ 		direction : "both",
+      	openEvent : 'click',
+      	closeEvent : 'mouseleave',
+      	openSelector : '#e_open',
+      	closeSelector : '#e_panel_1',
+ 	});	
+ 	
+  	$("#e_panel_2").panel({
+ 		handle:'#e_panel_2 > .panel_tab',
+ 		content:'#e_panel_2 > .panel_content',
+ 		opened:false,
+ 		direction : "both",
+      	openEvent : 'click',
+      	closeEvent : 'mouseleave',
+      	openSelector : '#e_open',
+      	closeSelector : '#e_panel_2',
+ 	});	
+
+  });
+  	
+  </script>
+  
+  <style type="text/css">
+    body{
+      background-color:#FFFFFF;
+        font-family: Helvetica, Arial, sans-serif;
+        margin:20px;
+    }
+    
+    .left{float:left;}
+	
+	.right{float: right;}
+    
+    .container{
+    	width:800px;
+    	height:300px;
+    	background:#C4C4C4;
+    }
+    
+    .panel{
+		height:100%;
+		display:block;
+		background-color:rgba(225,225,225,0.7);	
+		overflow:hidden;
+	}
+
+	.panel_tab{
+		height:100%;
+		overflow: hidden;
+		background-color:red;
+	}
+	.button{
+	 float:right;
+	 margin:20px;
+	 padding:20px;
+	 display:block;
+	 background:#5DB0E6;
+	}
+	
+	a{
+		color:#000000;
+		text-decoration:none;
+	}
+    
+  </style>
+  
+  
+</head>
+
+<body>
+
+
+   		<h3>Simplest Version</h3>
+   		<div class="container">
+   			<div id="a_panel" class="panel left">
+    			<div class="panel_tab right"></div>
+    			<div class="panel_content left"></div>
+    		</div>
+   		</div>
+   		
+    	<h3>Right Opening Panels Starting Closed</h3>
+ 		<div class="container">
+   			<div id="b_panel_1" class="panel right">
+    			<div class="panel_tab left"></div>
+    			<div class="panel_content right"></div>
+    		</div>	
+    		<div id="b_panel_2" class="panel right">
+    			<div class="panel_tab left"></div>
+    			<div class="panel_content right"></div>
+    		</div>	
+    		<div id="b_panel_3" class="panel right">
+    			<div class="panel_tab left"></div>
+    			<div class="panel_content right"></div>
+    		</div>
+   		</div>
+   		
+    	<h3>Left Opening Panels Starting Open</h3>
+    	<div class="container">
+   			<div id="c_panel_1" class="panel left">
+    			<div class="panel_tab right"></div>
+    			<div class="panel_content left"></div>
+    		</div>	
+    		<div id="c_panel_2" class="panel left">
+    			<div class="panel_tab right"></div>
+    			<div class="panel_content left"></div>
+    		</div>	
+    		<div id="c_panel_3" class="panel left">
+    			<div class="panel_tab right"></div>
+    			<div class="panel_content left"></div>
+    		</div>	
+   		</div>
+   		
+    	<h3>Toggle a Specic Panel From Event</h3>
+ 		<div class="container">
+   			<div id="d_panel" class="panel left">
+    			<div class="panel_tab right"></div>
+    			<div class="panel_content left"></div>
+    		</div>
+    		<a class="button" id="d_toggle" href="javascript:void(0)">TOGGLE ME!</a>
+    		
+   		</div>
+   		
+ 		<h3>Open and Close all Panels From an Event</h3>
+  		<div class="container">
+   			
+   			<div id="e_panel_1" class="panel left">
+    			<div class="panel_tab right"></div>
+    			<div class="panel_content left"></div>
+    		</div>
+    		
+    		<div id="e_panel_2" class="panel left">
+    			<div class="panel_tab right"></div>
+    			<div class="panel_content left"></div>
+    		</div>
+
+    		<a class="button" id="e_open" href="javascript:void(0)">OPEN US!</a>
+    		
+   		</div>
+ 
+
+    <footer>
+     <p>by Robin Willis</p>
+    </footer>
+
+</body>
+</html>
