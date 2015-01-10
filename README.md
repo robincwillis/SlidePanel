@@ -15,7 +15,7 @@ Slide Panel is a JQuery plugin that allows elements to expand and collapse creat
 
 *	Option to slide vertically as well as horizontally
 *	Destroy method to unbind events and remove the panel from the dom
-	
+
 ###Options
 
 *	handle : Selector for the element that is visible at collapsed state, default is set to ".panel_tab"
@@ -43,9 +43,9 @@ Slide Panel is a JQuery plugin that allows elements to expand and collapse creat
 *	toggle : Toggle the panel
 *	hide : Hide the panel
 
-###Example
+###Project Page
 
-[SlidePanel](http://www.robincwillis.com/SlidePanel/example "Example")
+[SlidePanel](http://robincwillis.github.io/SlidePanel/ "Project Page")
 
 ###HTML
 
@@ -58,17 +58,17 @@ Slide Panel is a JQuery plugin that allows elements to expand and collapse creat
 
 	.left{float:left;}
 	.right{float: right;}
-	
+
 	.panel{
 		height:100%;
 		display:block;
 		overflow:hidden;
 	}
-	
+
 	.panel_tab{
 		height:100%;
 		overflow: hidden;
-	}	
+	}
 
 ###Javascript
 
