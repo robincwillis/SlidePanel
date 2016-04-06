@@ -41,15 +41,15 @@
      	$.extend($(this).data('settings'), options);
 
      	
-		$(el.data('settings').openSelector).live(el.data('settings').openEvent,function(e){
+		$(el.data('settings').openSelector).on(el.data('settings').openEvent,function(e){
 			methods.open(el)
 		});
 		
-		$(el.data('settings').closeSelector).live(el.data('settings').closeEvent,function(e){
+		$(el.data('settings').closeSelector).on(el.data('settings').closeEvent,function(e){
 			methods.close(el, e);	
 		});
 	
-		$(el.data('settings').toggleSelector).live(el.data('settings').toggleEvent,function(e){
+		$(el.data('settings').toggleSelector).on(el.data('settings').toggleEvent,function(e){
 			methods.toggle(el);	
 		});
 		
