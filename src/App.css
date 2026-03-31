@@ -1,0 +1,118 @@
+/* ── Global reset / base ─────────────────────────────────────────────────── */
+
+body {
+  background-color: #efefef;
+  padding: 20px;
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+h1 { padding: 0; margin: 0; }
+h2 { padding: 0; margin: 0; }
+
+a { text-decoration: none; color: #5db0e6; }
+a:hover { color: #0f67a1; }
+a:visited { color: #a55858; }
+
+ul, li { list-style: none; margin: 0; padding: 0; }
+li { padding-bottom: 8px; }
+
+pre {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  border: 1px dashed #e1e1e1;
+  color: #333344;
+  background: #fafafa;
+  font-family: monospace;
+  overflow: auto;
+  font-size: 14px;
+  padding: 0.5em;
+}
+
+button {
+  font-size: 14px;
+  padding: 8px 16px;
+  cursor: pointer;
+  border: none;
+  border-radius: 4px;
+  background: #232323;
+  color: #fff;
+}
+button:hover { background: #444; }
+
+/* ── Layout ──────────────────────────────────────────────────────────────── */
+
+#container {
+  margin: auto;
+  width: 900px;
+  height: 100%;
+}
+
+#content {
+  padding: 20px 0;
+  float: left;
+  width: 650px;
+}
+
+#header {
+  padding: 20px;
+  background-color: #fff;
+  border: 1px solid #c4c4c4;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+#menu {
+  margin-top: 20px;
+  font-size: 12px;
+  float: right;
+  background-color: #d6d6d6;
+  width: 200px;
+  padding: 10px;
+  border-radius: 3px;
+  border: 1px solid #c4c4c4;
+}
+
+#description { width: 650px; float: left; }
+#footer { padding: 20px 0; clear: both; }
+
+/* ── Demo panel container ────────────────────────────────────────────────── */
+
+#demo_panel {
+  padding: 0;
+  height: 220px;
+  width: 610px;
+}
+
+/* Panel body / tab demo colours */
+.slide-panel__body {
+  height: 100%;
+  background-color: rgba(225, 225, 225, 0.7);
+}
+
+.slide-panel__tab {
+  height: 100%;
+  background-color: #232323;
+}
+
+/* ── Named demo panels ───────────────────────────────────────────────────── */
+
+#a_panel,
+#b_panel {
+  margin-right: 5px;
+}
+
+/* ── Buttons in menu ─────────────────────────────────────────────────────── */
+
+.button {
+  font-size: 14px;
+  background: #000;
+  display: block;
+  width: 175px;
+  height: 45px;
+  margin: 12px;
+  line-height: 45px;
+  color: #fff;
+  text-align: center;
+  border-radius: 5px;
+}
+.button:hover  { color: #fff; background-color: #141414; }
+.button:visited { color: #fff; background-color: #232323; }

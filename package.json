@@ -1,13 +1,25 @@
 {
-  "name": "SlidePanel",
-  "version": "0.0.1",
+  "name": "slidepanel",
+  "version": "1.0.0",
   "author": "Robin Willis",
-  "description": "A Collapsable Panel Jquery Plugin ",
+  "description": "A collapsible slide panel React component",
   "homepage": "http://robincwillis.github.io/SlidePanel/",
   "repository": {
     "type": "git",
     "url": "git://github.com/robincwillis/SlidePanel.git"
   },
+  "main": "src/SlidePanel.jsx",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
   "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.0.0",
+    "vite": "^4.4.0"
   }
 }
