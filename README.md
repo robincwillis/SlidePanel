@@ -1,85 +1,189 @@
 SlidePanel
 ==========
 
-Another JQuery Panel Plugin.
--------------
+A React Slide Panel Component.
 
-Version Beta 0.0.1
-Updated November 10th, 2011
+Version 1.0.0
 
-###Description
+> **Migrated from jQuery plugin (v0.0.1) to a React component.**  
+> The original jQuery source is preserved at `src/jquery.slidePanel.0.0.1.js` for reference.
 
-Slide Panel is a JQuery plugin that allows elements to expand and collapse creating a sliding panel effect. I know that this is nothing new and there are already a few JQuery panel plugins out there but this one is both highly flexible, has a small footprint and has some unique features.
+---
 
-###Further Developments
+## Description
 
-*	Option to slide vertically as well as horizontally
-*	Destroy method to unbind events and remove the panel from the dom
+SlidePanel is a React component that lets elements expand and collapse with a
+smooth sliding panel effect. It is lightweight, flexible, and supports both
+hover and click-based interactions. Directional constraints let you control
+which mouse-exit direction triggers the close animation.
 
-###Options
+---
 
-*	handle : Selector for the element that is visible at collapsed state, default is set to ".panel_tab"
-*	content : Selector for the element that is visible at  open state ".panel_content"
-*	opened : Inital panel state is open, default is set to false
-*	hidden : Inital panel state is hidden, default is set to false
-*	direction : If closing on "mouseleave" constrain the direction that closes the panel, can be "right", "left" or "both", default is set to "both"
-*	openedSize : Width of panel at its open state, default is set to 250
-*	offset : Width for the handle at its closed state, default is set to 35
-*	closedSize : Width of the panel at its closed state, default is set to 0
-*	animTime : Time it takes to open or close, default is set to 500
-*	openEvent : Event to open the panel, default is set to "mouseenter"
-*	closeEvent : Event to close the panel, default is set to "mouseleave"
-*	toggleEvent : Event to toggle the panel, default is set to ""
-*	openSelector : Selector for the element to attach the open event to, default is set to ""
-*	closeSelector : Selector for the element to attach the close event to, default is set to ""
-*	toggleSelector : Selector for the element to attach the toggle event to, default is set to ""
+## Installation
 
+```bash
+npm install
+npm run dev      # start the Vite dev server
+npm run build    # production build
+npm run preview  # preview the production build
+```
 
-###Methods
+The component has no runtime dependencies beyond React 18+.
 
-*	open : Open the panel
-*	close : Close the panel
-*	forceClose : Force close the panel no matter what
-*	toggle : Toggle the panel
-*	hide : Hide the panel
+---
 
-###Project Page
+## Usage
 
-[SlidePanel](http://robincwillis.github.io/SlidePanel/ "Project Page")
+```jsx
+import SlidePanel from './src/SlidePanel';
 
-###HTML
+// Hover open / close
+<SlidePanel
+  defaultOpened
+  direction="both"
+  openedSize={250}
+  openOn="mouseenter"
+  closeOn="mouseleave"
+  handle={<div className="my-tab" />}
+>
+  <div className="my-content" />
+</SlidePanel>
 
-	<div id="slide_panel" class="panel right">
-		<div class="panel_content"></div>
-		<div class="panel_tab"></div>
-	</div>
+// Toggle via an external button (imperative ref API)
+import { useRef } from 'react';
 
-###CSS
+function Example() {
+  const panelRef = useRef(null);
+  return (
+    <>
+      <button onClick={() => panelRef.current.toggle()}>Toggle</button>
+      <SlidePanel ref={panelRef} openedSize={250} openOn="" closeOn="">
+        <div className="my-content" />
+      </SlidePanel>
+    </>
+  );
+}
+```
 
-	.left{float:left;}
-	.right{float: right;}
+---
 
-	.panel{
-		height:100%;
-		display:block;
-		overflow:hidden;
-	}
+## Props
 
-	.panel_tab{
-		height:100%;
-		overflow: hidden;
-	}
+| Prop            | Type        | Default        | Description |
+|-----------------|-------------|----------------|-------------|
+| `handle`        | ReactNode   | —              | Content rendered in the collapsed tab/handle. |
+| `children`      | ReactNode   | —              | Content rendered in the expanded panel body. |
+| `defaultOpened` | boolean     | `false`        | Start in the open state. |
+| `defaultHidden` | boolean     | `false`        | Start completely hidden (width 0, handle hidden). |
+| `direction`     | string      | `"both"`       | Constrains the close direction on `mouseleave`. See below. |
+| `openedSize`    | number      | `250`          | Panel width (px) when fully open. |
+| `offset`        | number      | `35`           | Panel width (px) when closed (handle visible). |
+| `animDuration`  | number      | `500`          | CSS transition duration in ms. |
+| `openOn`        | string      | `"mouseenter"` | DOM event name that opens the panel. |
+| `closeOn`       | string      | `"mouseleave"` | DOM event name that closes the panel. |
+| `toggleOn`      | string      | `""`           | DOM event name that toggles the panel. |
+| `className`     | string      | `""`           | Extra CSS class names on the panel wrapper. |
+| `style`         | object      | `{}`           | Extra inline styles on the panel wrapper. |
+| `onOpen`        | function    | —              | Callback fired when the panel opens. |
+| `onClose`       | function    | —              | Callback fired when the panel closes. |
 
-###Javascript
+### `direction` values
 
-	$("#a_panel").panel({
-		handle:'#slide_panel > .panel_tab',
-		content:'#slide_panel > .panel_content',
-		opened:true,
-		direction : "both",
-		openedSize : 180,
-		openEvent : 'mouseenter',
-		closeEvent : 'mouseleave',
-		openSelector : '#slide_panel',
-		closeSelector : '#slide_panel',
-	});
+| Value    | Behaviour |
+|----------|-----------|
+| `"both"` | Close whenever the mouse leaves the panel (default). |
+| `"right"`| Handle is on the right side. Only closes when the mouse exits from the **left**. |
+| `"left"` | Handle is on the left side. Only closes when the mouse exits from the **right**. |
+
+---
+
+## Imperative API (ref)
+
+Attach a `ref` to `<SlidePanel>` to call methods programmatically.
+
+```js
+const panelRef = useRef(null);
+// ...
+panelRef.current.open();
+panelRef.current.close(mouseEvent); // respects direction
+panelRef.current.forceClose();      // ignores direction
+panelRef.current.toggle();
+panelRef.current.hide();            // width → 0, handle hidden
+```
+
+---
+
+## CSS
+
+Import the bundled styles, or write your own:
+
+```css
+/* Provided by SlidePanel.css */
+.slide-panel            { display: block; height: 100%; overflow: hidden; }
+.slide-panel__content   { height: 100%; overflow: hidden; }
+.slide-panel__handle    { height: 100%; overflow: hidden; }
+
+/* Float helpers */
+.slide-panel.left       { float: left;  }
+.slide-panel.right      { float: right; }
+```
+
+The animated `width` is set as an inline style by the component; everything
+else can be freely overridden.
+
+---
+
+## Examples
+
+### Simple hover panel (opens left to right)
+
+```jsx
+<SlidePanel
+  className="left"
+  defaultOpened
+  openedSize={180}
+  openOn="mouseenter"
+  closeOn="mouseleave"
+  handle={<div style={{ width: '100%', height: '100%', background: '#232323' }} />}
+>
+  <div style={{ width: '100%', height: '100%', background: '#e1e1e1' }} />
+</SlidePanel>
+```
+
+### Click-toggled panel
+
+```jsx
+const ref = useRef(null);
+
+<button onClick={() => ref.current.toggle()}>Open / Close</button>
+<SlidePanel ref={ref} openedSize={300} openOn="" closeOn="" offset={0}>
+  <p>Panel content</p>
+</SlidePanel>
+```
+
+### Multiple panels sharing one toggle button
+
+```jsx
+const leftRef  = useRef(null);
+const rightRef = useRef(null);
+
+function toggleAll() {
+  leftRef.current.toggle();
+  rightRef.current.toggle();
+}
+
+<button onClick={toggleAll}>Toggle both</button>
+<SlidePanel ref={leftRef}  className="left"  openedSize={200} openOn="" closeOn="">…</SlidePanel>
+<SlidePanel ref={rightRef} className="right" openedSize={200} openOn="" closeOn="">…</SlidePanel>
+```
+
+---
+
+## Project Page
+
+[robincwillis.github.io/SlidePanel](http://robincwillis.github.io/SlidePanel/)
+
+## Further Development
+
+- Vertical (height) sliding support
+- Controlled mode (externally managed `isOpen` prop)
