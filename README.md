@@ -1,41 +1,26 @@
-SlidePanel
-==========
+# @robincwillis/react-slidepanel
 
-A React Slide Panel Component.
+A collapsible slide panel React component with smooth width animations, directional close constraints, and an imperative ref API.
 
-Version 1.0.0
-
-> **Migrated from jQuery plugin (v0.0.1) to a React component.**  
-> The original jQuery source is preserved at `src/jquery.slidePanel.0.0.1.js` for reference.
-
----
-
-## Description
-
-SlidePanel is a React component that lets elements expand and collapse with a
-smooth sliding panel effect. It is lightweight, flexible, and supports both
-hover and click-based interactions. Directional constraints let you control
-which mouse-exit direction triggers the close animation.
+[![npm](https://img.shields.io/npm/v/@robincwillis/react-slidepanel)](https://www.npmjs.com/package/@robincwillis/react-slidepanel)
+[![license](https://img.shields.io/npm/l/@robincwillis/react-slidepanel)](./LICENSE)
 
 ---
 
 ## Installation
 
 ```bash
-npm install
-npm run dev      # start the Vite dev server
-npm run build    # production build
-npm run preview  # preview the production build
+npm install @robincwillis/react-slidepanel
 ```
 
-The component has no runtime dependencies beyond React 18+.
+Requires React 17 or later as a peer dependency.
 
 ---
 
 ## Usage
 
 ```jsx
-import SlidePanel from './src/SlidePanel';
+import SlidePanel from '@robincwillis/react-slidepanel';
 
 // Hover open / close
 <SlidePanel
@@ -89,11 +74,11 @@ function Example() {
 
 ### `direction` values
 
-| Value    | Behaviour |
-|----------|-----------|
-| `"both"` | Close whenever the mouse leaves the panel (default). |
-| `"right"`| Handle is on the right side. Only closes when the mouse exits from the **left**. |
-| `"left"` | Handle is on the left side. Only closes when the mouse exits from the **right**. |
+| Value     | Behaviour |
+|-----------|-----------|
+| `"both"`  | Close whenever the mouse leaves the panel (default). |
+| `"right"` | Handle is on the right side. Only closes when the mouse exits from the **left**. |
+| `"left"`  | Handle is on the left side. Only closes when the mouse exits from the **right**. |
 
 ---
 
@@ -103,7 +88,7 @@ Attach a `ref` to `<SlidePanel>` to call methods programmatically.
 
 ```js
 const panelRef = useRef(null);
-// ...
+
 panelRef.current.open();
 panelRef.current.close(mouseEvent); // respects direction
 panelRef.current.forceClose();      // ignores direction
@@ -113,33 +98,12 @@ panelRef.current.hide();            // width → 0, handle hidden
 
 ---
 
-## CSS
-
-Import the bundled styles, or write your own:
-
-```css
-/* Provided by SlidePanel.css */
-.slide-panel            { display: block; height: 100%; overflow: hidden; }
-.slide-panel__content   { height: 100%; overflow: hidden; }
-.slide-panel__handle    { height: 100%; overflow: hidden; }
-
-/* Float helpers */
-.slide-panel.left       { float: left;  }
-.slide-panel.right      { float: right; }
-```
-
-The animated `width` is set as an inline style by the component; everything
-else can be freely overridden.
-
----
-
 ## Examples
 
-### Simple hover panel (opens left to right)
+### Simple hover panel
 
 ```jsx
 <SlidePanel
-  className="left"
   defaultOpened
   openedSize={180}
   openOn="mouseenter"
@@ -173,15 +137,11 @@ function toggleAll() {
 }
 
 <button onClick={toggleAll}>Toggle both</button>
-<SlidePanel ref={leftRef}  className="left"  openedSize={200} openOn="" closeOn="">…</SlidePanel>
-<SlidePanel ref={rightRef} className="right" openedSize={200} openOn="" closeOn="">…</SlidePanel>
+<SlidePanel ref={leftRef}  direction="left"  openedSize={200} openOn="" closeOn="">…</SlidePanel>
+<SlidePanel ref={rightRef} direction="right" openedSize={200} openOn="" closeOn="">…</SlidePanel>
 ```
 
 ---
-
-## Project Page
-
-[robincwillis.github.io/SlidePanel](http://robincwillis.github.io/SlidePanel/)
 
 ## Further Development
 

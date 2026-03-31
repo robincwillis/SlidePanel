@@ -5,7 +5,6 @@
  * @license MIT
  */
 import { useState, useRef, useCallback, useImperativeHandle, forwardRef } from 'react';
-import './SlidePanel.css';
 
 /**
  * Map DOM event names to React synthetic event prop names.
@@ -185,24 +184,27 @@ const SlidePanel = forwardRef(function SlidePanel(
   // ── Render ──────────────────────────────────────────────────────────────────
 
   const transition = `width ${animDuration}ms ease`;
+  const float = direction === 'left' ? 'left' : direction === 'right' ? 'right' : undefined;
 
   return (
     <div
       ref={panelRef}
-      className={['slide-panel', className].filter(Boolean).join(' ')}
-      style={{ width: panelWidth, transition, ...style }}
+      className={className || undefined}
+      style={{
+        display: 'block',
+        height: '100%',
+        overflow: 'hidden',
+        float,
+        width: panelWidth,
+        transition,
+        ...style,
+      }}
       {...eventHandlers}
     >
-      <div
-        className="slide-panel__content"
-        style={{ width: contentWidth, transition }}
-      >
+      <div style={{ height: '100%', overflow: 'hidden', width: contentWidth, transition }}>
         {children}
       </div>
-      <div
-        className="slide-panel__handle"
-        style={{ width: handleWidth, transition }}
-      >
+      <div style={{ height: '100%', overflow: 'hidden', width: handleWidth, transition }}>
         {handle}
       </div>
     </div>

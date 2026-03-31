@@ -1,0 +1,17 @@
+# Source
+src/
+
+# App / demo files
+index.html
+example/
+css/
+
+# Build tooling
+vite.config.js
+
+# Dev dependencies / lockfiles
+node_modules/
+package-lock.json
+
+# OS / editor
+.DS_Store

@@ -1,25 +1,36 @@
 {
-  "name": "slidepanel",
+  "name": "@robincwillis/react-slidepanel",
   "version": "1.0.0",
-  "author": "Robin Willis",
+  "author": "@robincwillis",
   "description": "A collapsible slide panel React component",
   "homepage": "http://robincwillis.github.io/SlidePanel/",
   "repository": {
     "type": "git",
     "url": "git://github.com/robincwillis/SlidePanel.git"
   },
-  "main": "src/SlidePanel.jsx",
+  "main": "dist/slidepanel.umd.js",
+  "module": "dist/slidepanel.es.js",
+  "exports": {
+    ".": {
+      "import": "./dist/slidepanel.es.js",
+      "require": "./dist/slidepanel.umd.js"
+    }
+  },
+  "files": ["dist"],
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "clean": "rm -rf dist"
   },
-  "dependencies": {
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+  "peerDependencies": {
+    "react": ">=17",
+    "react-dom": ">=17"
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^4.0.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "vite": "^4.4.0"
   }
 }
